@@ -17,6 +17,16 @@ Below are several common deployment options, review them to determine which setu
 
 Here are the baseline requirements for running a tiny installation.
 
+Recommended hardware configuration for each node:
+```yaml
+CPU: 4 cores*
+CPU Type: host
+RAM: 16 GB
+DISK1: 32 GB*
+DISK2: 100 GB** (raw)
+
+```
+
 **Compute:**
 
 - Three physical or virtual servers with amd64/x86_64 architecture, with at least 16 GB RAM and 4 CPU cores each.
@@ -26,8 +36,12 @@ Here are the baseline requirements for running a tiny installation.
 
 **Storage:**
 
-The primary disk should be at least 32 GB. Talos Linux uses it for the OS, images, and logs, so it's better to have more space.
-- Secondary disk is dedicated to the storage system. 100 GB is a good starting point, but the actual size depends entirely on your workload.
+Storage in a Cozystack cluster serves two primary purposes: one for the system and one for your workloads. Understanding the role of each ensures the stability and scalability of your environment.
+
+- *Primary Disk: This is where the operating system (Talos Linux) is installed. It also stores essential Cozystack system components such as container images and logs. Minimum recommended size: 32 GB (Approximately 26 GB is used in a standard Cozystack setup). Usually talos install methods expects /dev/sda as the system disk but this can be patched manually [patched manually or with talm.](https://github.com/cozystack/cozystack/issues/723#issuecomment-2762374751).
+
+- **Secondary Disk: This disk stores your workload data and provides persistent, high-availability storage for your applications and services. Suggested starting size: 100 GB, which can be increased based on your workload requirements.Learn more about configuring storage here. Storage path (usually /dev/sdb or other) will be defined on storage configuration and will not prevent Talos to boot as for the system disk. [Learn more about configuring storage here.](https://cozystack.io/docs/getting-started/first-deployment/#configure-storage)
+
 
 **Networking:**
 
