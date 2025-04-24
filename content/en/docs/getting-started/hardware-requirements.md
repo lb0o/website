@@ -24,8 +24,12 @@ CPU Type: host
 RAM: 16 GB
 DISK1: 32 GB*
 DISK2: 100 GB** (raw)
-
 ```
+<small><i>
+*Minimum: 32 GB, (Approximately 26 GB is used in a standard Cozystack setup). Talos install expects /dev/sda as system disk (virtio drive usually use /dev/vda)[see system disk install issues](https://github.com/cozystack/cozystack/issues/723#issuecomment-2762374751).
+
+**Suggested: 100 GB. Disk path (usually /dev/sdb) will be defined on storage configuration. Do not affect Talos install. [Learn more about configuring Linstor StorageClass here.](https://cozystack.io/docs/getting-started/first-deployment/#configure-storage)
+</i></small>
 
 **Compute:**
 
@@ -38,9 +42,9 @@ DISK2: 100 GB** (raw)
 
 Storage in a Cozystack cluster serves two primary purposes: one for the system and one for your workloads. Understanding the role of each ensures the stability and scalability of your environment.
 
-- *Primary Disk: This is where the operating system (Talos Linux) is installed. It also stores essential Cozystack system components such as container images and logs. Minimum recommended size: 32 GB (Approximately 26 GB is used in a standard Cozystack setup). Usually talos install methods expects /dev/sda as the system disk. Talos install may require a patch if the path is different (virtio drive usually use /dev/vda)[modify system disk path for talos install using talm](https://github.com/cozystack/cozystack/issues/723#issuecomment-2762374751).
+- Primary Disk: Contains the Talos Linux operating system, essential system kernel modules and Cozystack system base pods, and logs, and base container images.
 
-- **Secondary Disk: This disk stores your workload data and allow storage to be provisioned using PersistentVolumeClaim (PVC). Suggested starting size: 100 GB, which can be increased based on your workload requirements. Storage path (usually /dev/sdb) will be defined on storage configuration and will not prevent Talos to boot as for the system disk. [Learn more about configuring Linstor StorageClass here.](https://cozystack.io/docs/getting-started/first-deployment/#configure-storage)
+- Secondary Disk: Dedicated to workload data and can be increased based on workload requirements. Used for provisioning volumes via PersistentVolumeClaims (PVCs).
 
 
 **Networking:**
