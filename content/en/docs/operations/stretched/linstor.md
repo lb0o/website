@@ -45,6 +45,6 @@ These values are tuned for inter-datacenter environments with higher latency tha
 | `--connect-int`  | Interval in seconds between TCP connection attempts (in seconds).                             | 10            | 15                |
 | `--ping-int`     | Interval in seconds between keepalive pings (in seconds).                                     | 10            | 15                |
 | `--ping-timeout` | Time to wait for a ping response before considering the peer dead (in tenths of a second).    | 5             | 20                |
-| `--timeout`      | Maximum time to wait for a network reply before triggering a timeout (in tenths of a second). | 60            | 120               |
+| `--drbd-timeout` | Maximum time to wait for a network reply before triggering a timeout (in tenths of a second). | 60            | 120               |
 
 Adjusting these settings helps avoid unnecessary fencing and workload disruption in stretched clusters.
