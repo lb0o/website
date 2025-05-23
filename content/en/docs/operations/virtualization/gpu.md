@@ -33,7 +33,7 @@ Follow these steps:
 2.  Enable the GPU Operator bundle in your Cozystack configuration:
 
     ```bash
-    kubectl edit -n cozy-system configmap cozystack-config
+    kubectl edit -n cozy-system configmap cozystack
     ```
 
 3.  Add `gpu-operator` to the list of bundle-enabled packages:
