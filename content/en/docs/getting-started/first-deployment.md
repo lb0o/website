@@ -120,7 +120,7 @@ metadata:
 data:
   bundle-name: "paas-full"
   root-host: example.org
-  api-server-endpoint: https://192.168.100.10:6443
+  api-server-endpoint: https://api.example.org:443
   ipv4-pod-cidr: "10.244.0.0/16"
   ipv4-pod-gateway: "10.244.0.1"
   ipv4-svc-cidr: "10.96.0.0/16"
