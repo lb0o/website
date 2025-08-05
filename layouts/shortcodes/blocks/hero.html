@@ -31,7 +31,7 @@
 <section id="{{ $blockID }}" class="row td-hero-block">
   <div class="container">
       <div class="row">
-          {{ with .Get "title" }}<h1 class="display-1">{{ $title := . }}{{ with $logo_image }}{{ $logo_image_resized := (.Fit (printf "70x70 %s" $logo_anchor)) }}<img class="td-hero-logo" src="{{ $logo_image_resized.RelPermalink }}" alt="{{ $title | html }} Logo">{{ end }}{{ $title | html }}</h1>{{ end }}
+          {{ with .Get "title" }}<h1 class="display-1" style="padding: 0 100px 0 0;">{{ $title := . }}{{ with $logo_image }}{{ $logo_image_resized := (.Fit (printf "70x70 %s" $logo_anchor)) }}<img class="td-hero-logo" src="{{ $logo_image_resized.RelPermalink }}" alt="{{ $title | html }} Logo">{{ end }}{{ $title | html }}</h1>{{ end }}
           {{ with .Get "subtitle" }}<p>{{ . | html }}</p>{{ end }}
       </div>
       <div class="row hero-details">
@@ -51,8 +51,15 @@
           <div class="hero-image">
             <iframe width="630" height="355" src="https://www.youtube.com/embed/24i9wIsJHGE?si=sIqbE-GeryCEQfin" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
           </div>
+
+
         </div>
 
+
       </div>
+
   </div>
+
+  <img src="https://github.com/cncf/artwork/raw/main/projects/kubernetes/certified-kubernetes/versionless/color/certified-kubernetes-color.svg" height="100px" style="margin: 10px 64px 64px -135px">
+
 </section>
